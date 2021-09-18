@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/backendForCloud/backendForCloud.iml" filepath="$PROJECT_DIR$/backendForCloud/backendForCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontendForCloud/frontendForCloud.iml" filepath="$PROJECT_DIR$/frontendForCloud/frontendForCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-cloud-pack.iml" filepath="$PROJECT_DIR$/.idea/spring-cloud-pack.iml" />
+    </modules>
+  </component>
+</project>
