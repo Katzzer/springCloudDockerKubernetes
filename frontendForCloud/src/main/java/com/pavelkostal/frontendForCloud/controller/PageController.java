@@ -1,5 +1,6 @@
 package com.pavelkostal.frontendForCloud.controller;
 
+import com.pavelkostal.frontendForCloud.configuration.Configuration;
 import com.pavelkostal.frontendForCloud.entity.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +9,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -22,13 +22,15 @@ public class PageController {
     
     private final RestTemplate restTemplate;
     private final WebClient webClient;
+    private final Configuration configuration;
     
     private final String employeesUrl = "http://localhost:8000/api/v1/employees";
     private final String employeesUrlWithFlux = "http://localhost:8000/api/v2/employees";
 
     @Autowired
-    public PageController(RestTemplate restTemplate) {
+    public PageController(RestTemplate restTemplate, Configuration configuration) {
         this.restTemplate = restTemplate;
+        this.configuration = configuration;
         webClient = WebClient.create();
     }
 
@@ -55,12 +57,14 @@ public class PageController {
     
     @GetMapping("/fluxAndWebclient")
     public List<Employee> connectToRestBackendWithFluxAndWebcliend() {
-        List<Employee> listOfEmployees = webClient.get().uri(employeesUrlWithFlux)
+
+        configuration.getMaximum();
+        configuration.getMinimum();
+
+        return webClient.get().uri(employeesUrlWithFlux)
                 .retrieve()
                 .bodyToFlux(Employee.class)
                 .collectList()
                 .block();
-        
-        return listOfEmployees;
     }
 }
