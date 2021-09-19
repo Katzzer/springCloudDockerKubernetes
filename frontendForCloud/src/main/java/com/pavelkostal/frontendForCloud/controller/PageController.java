@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
@@ -19,13 +20,16 @@ public class PageController {
 
     private Logger logger = LoggerFactory.getLogger(PageController.class);
     
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+    private final WebClient webClient;
     
     private final String employeesUrl = "http://localhost:8000/api/v1/employees";
     private final String employeesUrlWithFlux = "http://localhost:8000/api/v2/employees";
 
+    @Autowired
     public PageController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
+        webClient = WebClient.create();
     }
 
     @GetMapping()
@@ -47,6 +51,16 @@ public class PageController {
                 });
 
         return responseEntity.getBody();
-
+    }
+    
+    @GetMapping("/fluxAndWebclient")
+    public List<Employee> connectToRestBackendWithFluxAndWebcliend() {
+        List<Employee> listOfEmployees = webClient.get().uri(employeesUrlWithFlux)
+                .retrieve()
+                .bodyToFlux(Employee.class)
+                .collectList()
+                .block();
+        
+        return listOfEmployees;
     }
 }

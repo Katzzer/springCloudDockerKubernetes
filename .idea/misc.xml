@@ -5,6 +5,8 @@
       <list>
         <option value="$PROJECT_DIR$/backendForCloud/pom.xml" />
         <option value="$PROJECT_DIR$/frontendForCloud/pom.xml" />
+        <option value="$PROJECT_DIR$/limits-service/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-cloud-config-server/pom.xml" />
       </list>
     </option>
   </component>

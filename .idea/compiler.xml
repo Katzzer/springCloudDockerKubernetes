@@ -9,17 +9,22 @@
         <outputRelativeToContentRoot value="true" />
         <module name="backendForCloud" />
         <module name="frontendForCloud" />
+        <module name="spring-cloud-config-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="backendForCloud" target="16" />
       <module name="frontendForCloud" target="16" />
+      <module name="limits-service" target="16" />
+      <module name="spring-cloud-config-server" target="16" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="backendForCloud" options="-parameters" />
       <module name="frontendForCloud" options="-parameters" />
+      <module name="limits-service" options="-parameters" />
+      <module name="spring-cloud-config-server" options="-parameters" />
     </option>
   </component>
 </project>
