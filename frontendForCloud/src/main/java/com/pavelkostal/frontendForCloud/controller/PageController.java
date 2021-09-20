@@ -56,8 +56,9 @@ public class PageController {
     }
     
     @GetMapping("/fluxAndWebclient")
-    public List<Employee> connectToRestBackendWithFluxAndWebcliend() {
+    public List<Employee> connectToRestBackendWithFluxAndWebClient() {
 
+        // just for testing if config cloud server works
         configuration.getMaximum();
         configuration.getMinimum();
 
