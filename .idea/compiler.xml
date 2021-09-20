@@ -10,12 +10,14 @@
         <module name="backendForCloud" />
         <module name="frontendForCloud" />
         <module name="spring-cloud-config-server" />
+        <module name="naming-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="backendForCloud" target="16" />
       <module name="frontendForCloud" target="16" />
       <module name="limits-service" target="16" />
+      <module name="naming-server" target="16" />
       <module name="spring-cloud-config-server" target="16" />
     </bytecodeTargetLevel>
   </component>
@@ -24,6 +26,7 @@
       <module name="backendForCloud" options="-parameters" />
       <module name="frontendForCloud" options="-parameters" />
       <module name="limits-service" options="-parameters" />
+      <module name="naming-server" options="-parameters" />
       <module name="spring-cloud-config-server" options="-parameters" />
     </option>
   </component>

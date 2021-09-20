@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backendForCloud/backendForCloud.iml" filepath="$PROJECT_DIR$/backendForCloud/backendForCloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontendForCloud/frontendForCloud.iml" filepath="$PROJECT_DIR$/frontendForCloud/frontendForCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/naming-server/naming-server.iml" filepath="$PROJECT_DIR$/naming-server/naming-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/some-service/some-service.iml" filepath="$PROJECT_DIR$/some-service/some-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-config-server/spring-cloud-config-server.iml" filepath="$PROJECT_DIR$/spring-cloud-config-server/spring-cloud-config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-cloud-pack.iml" filepath="$PROJECT_DIR$/.idea/spring-cloud-pack.iml" />
