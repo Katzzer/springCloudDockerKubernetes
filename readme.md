@@ -40,5 +40,10 @@
 - It is similar to RestTemplate but it is used as interface with annotations then is used in controller to get data 
 - Thanks to Eureka it gets all urls that application could connect to
 
+### Resilience4j
+- It retries messages for x number of times
+- For example it retries 5 times every 5 seconds
+- The fallback method (method that is run if no connection) must have same return type as method that calls it
+
 ## More information
 - https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/

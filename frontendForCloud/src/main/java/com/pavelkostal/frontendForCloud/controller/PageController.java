@@ -2,6 +2,7 @@ package com.pavelkostal.frontendForCloud.controller;
 
 import com.pavelkostal.frontendForCloud.configuration.Configuration;
 import com.pavelkostal.frontendForCloud.entity.Employee;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,9 +73,14 @@ public class PageController {
     }
 
     @GetMapping("/fluxAndWebclientAndFeign")
+    @Retry(name = "default", fallbackMethod = "hardcodedResponse")
     public List<Employee> connectToRestBackendWithFluxAndWebClientAndFeign() {
 
 
         return backendproxy.connectToRestBackendWithFluxAndWebClientAndFeignClient();
+    }
+
+    public List<Employee> hardcodedResponse(Exception ex) {
+        return List.of(new Employee("not found", -1, "0"));
     }
 }
