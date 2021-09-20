@@ -23,14 +23,16 @@ public class PageController {
     private final RestTemplate restTemplate;
     private final WebClient webClient;
     private final Configuration configuration;
+    private BackendProxy backendproxy;
     
     private final String employeesUrl = "http://localhost:8000/api/v1/employees";
     private final String employeesUrlWithFlux = "http://localhost:8000/api/v2/employees";
 
     @Autowired
-    public PageController(RestTemplate restTemplate, Configuration configuration) {
+    public PageController(RestTemplate restTemplate, Configuration configuration, BackendProxy backendproxy) {
         this.restTemplate = restTemplate;
         this.configuration = configuration;
+        this.backendproxy = backendproxy;
         webClient = WebClient.create();
     }
 
@@ -67,5 +69,12 @@ public class PageController {
                 .bodyToFlux(Employee.class)
                 .collectList()
                 .block();
+    }
+
+    @GetMapping("/fluxAndWebclientAndFeign")
+    public List<Employee> connectToRestBackendWithFluxAndWebClientAndFeign() {
+
+
+        return backendproxy.connectToRestBackendWithFluxAndWebClientAndFeignClient();
     }
 }
