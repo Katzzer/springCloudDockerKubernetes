@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
         <module name="backendForCloud" />
         <module name="frontendForCloud" />
         <module name="spring-cloud-config-server" />
@@ -14,6 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-gateway" target="16" />
       <module name="backendForCloud" target="16" />
       <module name="frontendForCloud" target="16" />
       <module name="limits-service" target="16" />
@@ -23,6 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
       <module name="backendForCloud" options="-parameters" />
       <module name="frontendForCloud" options="-parameters" />
       <module name="limits-service" options="-parameters" />

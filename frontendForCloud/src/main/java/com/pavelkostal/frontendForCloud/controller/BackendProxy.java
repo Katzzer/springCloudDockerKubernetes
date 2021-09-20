@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@FeignClient(name="backend-server", url="localhost:8000")
+//@FeignClient(name="backend-server", url="localhost:8000")
+@FeignClient(name="backend-server")
 public interface BackendProxy {
     
     // Address of the remote serer

@@ -5,6 +5,8 @@
 - Backend application: 8000
 - Spring configuration server: 8888
 - Salary service: no port
+- Naming-server: 8761
+- Api-gateway: 8765
 
 ## [Some service](#someService) (in this example it't name is "Some service")
 - Must be initialized with git !!!
@@ -22,10 +24,21 @@
 
 ## Naming server
 - it uses Eureka to discover running servers and it's port
+- application that has to show in Eureka server needs to have Eureka client and Actuator in pom.xml
+- it also communicates with openfeign client that is in frontend server
+
+## API Gateway
+- It shows all urls by application name
+- For example: http://localhost:8765/backend-server/api/v2/employees
+  - http://localhost:8765/ - belongs to Api-gateway
+  - backend-server is name of backend-server, must be CAPITALIZED or set to lower-case in properties file (is set in this project)
+  - api/v2/employees - is url on backend-server
+- http://localhost:8765/frontend-server/fluxAndWebclientAndFeign
 
 ## Used technology
 ### Open Feign
 - It is similar to RestTemplate but it is used as interface with annotations then is used in controller to get data 
+- Thanks to Eureka it gets all urls that application could connect to
 
 ## More information
 - https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/
