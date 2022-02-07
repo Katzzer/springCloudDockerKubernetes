@@ -8,7 +8,7 @@
 - Naming-server: 8761
 - Api-gateway: 8765
 
-## [Some service](#someService) (in this example it't name is "Some service")
+## [Some service](#someService) (in this example it's name is "Some service")
 - Must be initialized with git !!!
 - Must contain <file_name>.properties file  
 - It has only configuration file/s for [Spring configuration server](#springConfigurationServer)
